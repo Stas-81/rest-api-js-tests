@@ -1,7 +1,5 @@
 import { expect } from '@jest/globals';
-import { Cli } from '../framework/controllers/cliPleskApi.controller';
-import { Client } from '../framework/controllers/clienPleskApi.controller';
-import { Domain } from '../framework/controllers/domainPleskApi.controller';
+import { Client, Domain, Cli } from '../framework/controllers/index';
 
 let domainId = null;
 
@@ -78,7 +76,6 @@ describe('Plesk RESTful API js tests', () => {
 
   it('should be able create new domain', async () => {
     const r = await new Domain().create();
-    // console.log(r.request);
     expect(r.status)
       .toEqual(201);
     expect(r.body)
